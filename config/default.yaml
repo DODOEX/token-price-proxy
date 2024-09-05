@@ -1,0 +1,42 @@
+app:
+  name: token-price-proxy
+  host: :8080
+  idle-timeout: 50s
+  print-routes: false
+  prefork: false
+  production: false
+  tls:
+    enable: false
+    cert-file: ./storage/selfsigned.crt
+    key-file: ./storage/selfsigned.key
+db:
+  gorm:
+    disable-foreign-key-constraint-when-migrating: true
+  postgres:
+    # dsn: 'postgres://token-price-proxy:123456@h127.0.0.1:5432/token-price-proxy'
+    dsn: 'your-postgres-dsn'
+redis:
+  # url: redis://:root-123456@127.0.0.1:6379
+  url: 'your-redis-url'
+
+apiKey:
+  coingecko: "CG-"
+  coingeckoOnChain: "CG-"
+  geckoterminal: ""
+logger:
+  time-format: ""
+  level: 0
+  prettier: true
+token:
+  totalReserveThreshold: "1000"
+  priceUsdThreshold: "100000"
+# price:
+#   processTime: 10ms
+#   processTimeOut: 5s
+
+# prohibitedSources:
+#     current:
+#       geckoterminal: 1
+#       defillama: 1
+#     historical:
+#       coingecko: 1
